@@ -19,7 +19,7 @@ public class EmployeeService implements EmployeeServiceInterface {
     @Override
     public Employee getEmployeeById(Long id) {
         return Optional.of(employeeRepository.findById(id))
-                .orElseThrow(EmployeeNotFoundException::new).get();
+                .orElseThrow(() -> new EmployeeNotFoundException("Employee details not found in DB", HttpStatus.NOT_FOUND)).get();
     }
 
     @Override

@@ -26,6 +26,7 @@ public class EmployeeController {
 
     @GetMapping("/employee")
     public List<Employee> getAllEmployees() {
+        log.info("Entering into getAllEmoployees...");
         return employeeServiceInterface.getAllEmployees();
     }
 
